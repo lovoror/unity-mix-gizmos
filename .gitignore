@@ -5,6 +5,7 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 LYGame/Assets/Plugins
+LYGame/Assets/Plugins.meta
 
 # Visual Studio cache directory
 .vs/
