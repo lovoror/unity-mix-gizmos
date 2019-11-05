@@ -21,7 +21,7 @@ namespace LYGame.Editor
 				ForeachSelectionResult result = handler.Invoke(obj);
 				if (result == ForeachSelectionResult.result_continue)
 					continue;
-				else if (result == ForeachSelectionResult.result_continue)
+				else if (result == ForeachSelectionResult.result_break)
 					break;
 			}
 		}
