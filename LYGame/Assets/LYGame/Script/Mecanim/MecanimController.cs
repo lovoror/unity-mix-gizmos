@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -35,6 +35,9 @@ namespace LYGame
 
 		public void SetStateIndex(int index)
 		{
+			if (this.animator == null)
+				return;
+
 			this.current_index = index;
 			this.animator.SetInteger(MecanimController.STATE_PARAMETER, index);
 		}
@@ -47,6 +50,12 @@ namespace LYGame
 			this.animation_end_handler.Invoke(context);
 		}
 
+		public static bool IsPlaying()
+		{
+			return Application.isPlaying;
+		}
+
+		[EnableIf("IsPlaying")]
 		[Button("切换动作")]
 		private void SetStateParameter(int index)
 		{
@@ -55,6 +64,7 @@ namespace LYGame
 			this.SetState(this.states[index]);
 		}
 
+		[EnableIf("IsPlaying")]
 		[Button("重播当前动作", ButtonSizes.Medium)]
 		[GUIColor(0.4f, 0.8f, 1)]
 		private void ReplayCurrent()

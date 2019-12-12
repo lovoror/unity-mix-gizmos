@@ -112,10 +112,17 @@ namespace LYGame.Editor
 				Renderer[] renderers = instance.GetComponentsInChildren<Renderer>();
 				if (renderers != null)
 				{
-					foreach (Renderer one in renderers)
-						one.material = mecanim_config.material;
+					int renderer_count = renderers.Length;
+					for (int i = 0; i < renderer_count; ++i)
+					{
+						Renderer one = renderers[i];
+						one.material = (i == 0) ? mecanim_config.material : mecanim_config.material_addition;
+					}
 				}
 			}
+
+			// 设置初始形态
+			instance.transform.localRotation = Quaternion.Euler(mecanim_config.rotation);
 
 			string prefab_path = string.Format("{0}/{1}.prefab", folder, name);
 			PrefabUtility.SaveAsPrefabAsset(instance, prefab_path);

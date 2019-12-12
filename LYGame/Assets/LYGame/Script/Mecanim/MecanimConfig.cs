@@ -56,10 +56,18 @@ namespace LYGame
 		[LabelText("允许读写")]
 		public bool enable_read_write;
 
-		[BoxGroup("材质")]
-		public Material material;
-
 		[BoxGroup("动作导入设置")]
 		public List<MecanimClipConfig> clips;
+
+		[BoxGroup("材质")]
+		[LabelText("主材质")]
+		public Material material;
+
+		[BoxGroup("材质")]
+		[LabelText("附加材质")]
+		public Material material_addition;
+
+		[BoxGroup("初始形态")]
+		public Vector3 rotation;
 	}
 }
