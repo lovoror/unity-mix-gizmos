@@ -30,4 +30,4 @@ Material:
     m_Floats:
     - _TotalTime: 2.1000001
     m_Colors:
-    - _Dynamic: {r: 42, g: 62, b: 10, a: 1}
+    - _Dynamic: {r: 1, g: 1, b: 1, a: 1}

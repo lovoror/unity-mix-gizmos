@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace LYGame
 {
@@ -20,11 +21,12 @@ namespace LYGame
 				for (int j = -this.cnt_radius; j <= this.cnt_radius; ++j)
 				{
 					GameObject go = Object.Instantiate(this.prefab);
+					go.transform.parent = this.transform;
 					go.transform.position = Vector3.right * i * gap + Vector3.forward * j * gap;
 					GPUSkinController instance = go.GetComponent<GPUSkinController>();
-					int index = Random.Range(0, 3);
+					int index = Random.Range(0, instance.sections.Count);
 					instance.SetAnimation(index, Random.Range(0.0f, 1.0f));
-					instance.SetSpeed(1.0f);
+					instance.SetSpeed(Random.Range(0.0f, 1.0f));
 				}
 			}
 		}
